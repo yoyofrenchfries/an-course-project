@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-md-5">
+        <!-- 將傳過來的資料命名，也在ts裡面宣告有Recipe這個東西 -->
+        <app-recipe-book-list></app-recipe-book-list>
+        <!-- 因為用service重購的關係，所以把上面的(myitemClickeded)="itemSelected = $event"拿掉ㄌ -->
+    </div>
+    <div class="col-md-7">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+
+<!-- 把選到的recipe的資料傳給detail component -->
+<!-- <app-recipe-book-detail
+        [recipe]="itemSelected"
+         *ngIf="itemSelected;else infoText"></app-recipe-book-detail>
+        <ng-template #infoText>
+            <p>Please select a recipe!</p>
+        </ng-template> -->

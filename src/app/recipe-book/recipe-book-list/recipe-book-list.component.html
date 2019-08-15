@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-xs-12">
+    <!-- add new Recipe -->
+    <button class="btn btn-success">New Recipe</button>
+  </div>
+</div>
+<hr />
+<!-- show my recipe -->
+<div class="row">
+  <div class="col-xs-12">
+    <!-- 把東西加在這個元素上面因為是這個元素本身要複製自己的，不是加在col上面>< 加錯地方ㄌ -->
+    <!-- 把recipes裡面的資料recipeElement(右邊)傳給recipe-book-item，[這裡是對這筆資料的命名，在recipe-book-item裡面也是叫這個名字] -->
+    <!-- let i = index好像是固定的值 -->
+    <app-recipe-book-item
+      *ngFor="let recipeElement of recipes;let i=index "
+      [recipe]="recipeElement"
+      [index]="i"
+    ></app-recipe-book-item>
+    <!-- [index]傳東西過去子元素 -->
+    <!-- $event:傳上來的資料 -->
+
+      <!-- (itemClicked)="itemClickeded($event)" $event也可以改成recipeElement顯示這裡recipe裡面的資料 -->
+      
+  </div>
+</div>
