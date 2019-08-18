@@ -1,5 +1,6 @@
 import { Ingredient } from "../shared/ingredient.model";
-import {EventEmitter} from '@angular/core';
+// import {EventEmitter} from '@angular/core';
+import {Subject} from 'rxjs';
 export class ShoppingListService {
 
   private ingredients: Ingredient[] = [
@@ -10,12 +11,14 @@ export class ShoppingListService {
   getIngredients(){
       return this.ingredients.slice();
   }
-  ingredientsChanged = new EventEmitter<Ingredient[]>();
+  // ingredientsChanged = new EventEmitter<Ingredient[]>();
+  ingredientsChanged = new Subject<Ingredient[]>();
+
   
   addIngredient(ingredient: Ingredient) {
     this.ingredients.push(ingredient);
     // 新增後再回傳一個複製的新陣列出去
-    this.ingredientsChanged.emit(this.ingredients.slice());
+    this.ingredientsChanged.next(this.ingredients.slice());
     // console.log(this.ingredients);
   }
 }

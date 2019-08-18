@@ -18,8 +18,8 @@
                 Manage Recipe <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" >
-                <li (click)="addIngredientsToList()" style="cursor: pointer"><a [routerLink]="[edit]">Add to Shopping List</a></li>
-                <li><a style="cursor: pointer">Edit Recipe</a></li>
+                <li (click)="addIngredientsToList()" style="cursor: pointer"><a>Add to Shopping List</a></li>
+                <li><a style="cursor: pointer" (click)="onEditRecipe()">Edit Recipe</a></li>
                 <li><a style="cursor: pointer">Delete Recipe</a></li>                
             </ul>
         </div>

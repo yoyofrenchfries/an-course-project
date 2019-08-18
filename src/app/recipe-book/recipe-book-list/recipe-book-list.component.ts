@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { Recipe } from "../recipe-book.model";
 import { RecipeBookService } from "../recipe-book.service";
 //呼叫我創建好的model(他是一個有constructor的class)
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: "app-recipe-book-list",
@@ -11,7 +11,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class RecipeBookListComponent implements OnInit {
   recipes: Recipe[];
-  constructor(private recipebookService: RecipeBookService,private route:ActivatedRoute) {}
+  constructor(private recipebookService: RecipeBookService,
+    private route:ActivatedRoute,
+    private router:Router) {}
   // id:string;
 
   ngOnInit() {
@@ -25,4 +27,8 @@ export class RecipeBookListComponent implements OnInit {
   //   this.myitemClickeded.emit(recipe);
   //   // console.log(recipe);
   // }
+
+  onNewRecipe(){
+    this.router.navigate(['new'],{relativeTo:this.route})
+  }
 }

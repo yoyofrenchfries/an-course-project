@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { Recipe } from "../recipe-book.model";
 import { ShoppingListService } from "src/app/shopping-list/shopping-list.service";
 import { Ingredient } from "../../shared/ingredient.model";
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { RecipeBookService } from '../recipe-book.service';
 
 @Component({
@@ -14,7 +14,12 @@ export class RecipeBookDetailComponent implements OnInit {
   //這是從recipe那裏import進來的資料名稱
   @Input() recipe: Recipe;
   // 引入service
-  constructor(private shoppinglistService: ShoppingListService,private route:ActivatedRoute,private recipebookService:RecipeBookService) {}
+  constructor(
+    private shoppinglistService: ShoppingListService,
+    private recipebookService:RecipeBookService,
+    private router:Router,
+    private route:ActivatedRoute,
+    ) {}
   ingredients = [];
   id:number;
   ngOnInit() {
@@ -40,5 +45,12 @@ export class RecipeBookDetailComponent implements OnInit {
 
     // 好像不能直接這樣子寫，...要寫在push裡 push(...this.recipe.ingredients)
     // this.shoppinglistService.addIngredient(...this.recipe.ingredients);
+  }
+
+  onEditRecipe(){
+    // this.router.navigate(['edit'],{relativeTo:this.route})
+    // 這一行是上上一行實際上做了些甚麼
+    this.router.navigate(['../',this.id,'edit'],{relativeTo:this.route})
+
   }
 }

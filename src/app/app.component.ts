@@ -9,16 +9,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
   booleans:boolean[] = [];
 
-  recipeclicked(recipe:boolean){
-    this.booleans.splice(0,1);
-    this.booleans.push(recipe);
-    console.log(this.booleans);
-  }
+  // recipeclicked(recipe:boolean){
+  //   this.booleans.splice(0,1);
+  //   this.booleans.push(recipe);
+  //   console.log(this.booleans);
+  // }
 
-  shoppinglistclicked(shoppinglist:boolean){
-    this.booleans.splice(0,1);
-    this.booleans.push(shoppinglist);
-    console.log(this.booleans);
-  }
+  // shoppinglistclicked(shoppinglist:boolean){
+  //   this.booleans.splice(0,1);
+  //   this.booleans.push(shoppinglist);
+  //   console.log(this.booleans);
+  // }
 
 }

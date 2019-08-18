@@ -1,9 +1,11 @@
-import {EventEmitter} from '@angular/core';
+// import {EventEmitter} from '@angular/core';
 import { Recipe } from "./recipe-book.model";
 import {Ingredient} from '../shared/ingredient.model'
+// import { Subject } from 'rxjs';
 
+// 資料的存放地和回傳地
 export class RecipeBookService{
-    recipeSelected = new EventEmitter<Recipe>();
+    // recipeSelected = new Subject<Recipe>();
     // private:我要保護recipes不備外面的人玩弄!哼!
     private recipes: Recipe[] = [
         //呼叫recipe model創建新的Recipe物件，要跟著model裡面的資料型態一起改
